@@ -1,0 +1,36 @@
+<%- include('header') %>
+
+<h1>View Gallery</h1>
+
+<table>
+	<tr>
+      <th>Title</th>
+      <th>Image</th>
+      <th>People</th>
+      <th>URL</th>
+    </tr>
+
+  <% objs.forEach(object => { %>
+
+  <% ppl = "None Listed"; %>
+  <% if (object.people) { %>
+  <%  for (var i = 0; i < object.people.length; i++) { %>
+  <%    if (i > 0) { %>
+  <%      ppl = ppl + ", " + object.people[i].name; %>
+  <%    } else { %>
+  <%      ppl = object.people[i].name; %>
+  <%    } %>
+  <%  } %>
+  <% } %>
+
+  <tr>
+	  <td><a href="/object/<%- object.objectnumber %>"><%- object.title %></td>
+	  <td><img src='<%- object.primaryimageurl %>'></td>
+	  <td><%- ppl %></td>
+	  <td><a href='<%- object.url %>'>See More</a></td>
+	</tr>
+
+  <% }); %>
+</table>
+
+<%- include('footer') %>

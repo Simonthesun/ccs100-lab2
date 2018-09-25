@@ -1,0 +1,34 @@
+<%- include('header') %>
+
+  <% obj.forEach(object => { %>
+
+  <h1><%- object.title %></h1>
+        <img src='<%- object.primaryimageurl %>'>
+        <div>
+              <p>
+    Description: <%- object.description %>
+  </p>
+  <p>
+    Provenance: <%- object.provenance %>
+  </p>
+  <p>
+    Accession Year: <%- object.accessionyear %>
+  </p>
+        </div>
+
+        <form action="" method="POST">
+Comment: <input type="text" name="comment">
+<input type="submit" value="Submit">
+</form>
+
+<% cmnts.forEach(comment => { %>
+  <% if (comment.object == object.objectnumber) { %>
+    <div><%- comment.comment %></div>
+  <% } %>
+<% }); %>
+
+  <% }); %>
+
+
+
+<%- include('footer') %>
