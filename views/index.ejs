@@ -2,12 +2,14 @@
 
 <h1>Gallery Listing</h1>
 
-<ul>
+<table>
   <% galleries.forEach(gallery => { %>
-  <li>
+  <tr>
+  <td>
     <a href="/gallery/<%- gallery.id %>">Gallery #<%- gallery.id %>: <%- gallery.name %> (Floor <%- gallery.floor %>)</a>
-  </li>
+  </td>
+  </tr>
   <% }); %>
-</ul>
+</table>
 
 <%- include('footer') %>
